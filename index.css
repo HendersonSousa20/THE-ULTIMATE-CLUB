@@ -1,116 +1,226 @@
-*{
+* {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
-body{
-  background-color: black;
-  color: white;
-  font-family: 'Montserrat';
+:root {
+  --background-color: black;
+  --text-color: white;
+  --accent-color: grey;
+  --highlight-color: lightgrey;
+  --font-primary: 'Noto Serif Display';
+  --font-secondary: 'Open Sans';
 }
 
-.nav{
-  margin-top: 10px;
-  margin-left: 20PX;
-  margin-right: 15px;
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-secondary);
+}
+
+.nav {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--background-color);
+  border-bottom: 2px solid var(--accent-color);
 }
-ul{
-  flex-wrap: wrap;
-  cursor: pointer;
+
+.nav h1 {
+  font-family: var(--font-primary);
+  font-size: 24px;
+}
+
+.nav ul {
   list-style: none;
   display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
-h2{
-  font-size: 20px;
-}
-h2:hover{
-  text-decoration: underline;
-  transform: scale(1.1);
-  transition: transform 1s;
-  
+  gap: 20px;
 }
 
-a:hover{
+.nav ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-family: var(--font-secondary);
   font-weight: bold;
-  transform: scale(1.1);
-  transition: 1s;
+}
+
+.nav ul li a:hover {
   text-decoration: underline;
-}
-
-.img{
-  text-align: center;
-  margin-top: 30px;
-}
-img{
- 
- height: 200px;
-  width: 700px;
-  margin-bottom: 50px;
-  }
-
-img:hover{
   transform: scale(1.1);
-  transition: 2s;
-  filter: drop-shadow(0 0 0.75rem rgb(166, 166, 166));
+  transition: transform 0.3s;
 }
 
-p{
-  text-align: center;
-}
-
-.btn{
-  margin-top: 30px;
+.hero {
   display: flex;
   justify-content: center;
-  gap: 50px;
-}
-
-#btn1{
-  background: transparent;
-  color: white;
-  border: 0;
-  font-weight: bold;
-  font-size: 20px;
-}
-#btn1:hover{
-  text-decoration: underline;
-}
-
-#btn2{
-  background-color: white;
-  border: 2px solid;
-  color: black;
-  font-weight: bold;
+  align-items: center;
   text-align: center;
-  height: 50px;
-  width: 150px;
-  font-size: 20px;
-  border-radius: 50px;
+  height: 60vh;
+  background-color: var(--accent-color);
+  position: relative;
 }
 
-#btn2:hover{
-   transform: scale(1.1);
-  transition: 1s;
-  font-weight: bold;
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.addictivetips.com/app/uploads/2021/08/puzzle.jpg');
+  background-size: cover;
+  opacity: 0.1;
+  z-index: 0;
 }
 
-.more-text{
-  margin-top: 40px;
-  margin-bottom: 40px;
+.hero-content h2 {
+  font-family: var(--font-primary);
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 18px;
+}
+
+.products, .about, .contact {
+  padding: 40px 20px;
   text-align: center;
 }
 
-hr{
- border: 1px dotted;
+.products h2, .about h2, .contact h2 {
+  font-family: var(--font-primary);
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 
-footer{
-  margin-top: 10px;
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.product-item {
+  background-color: var(--highlight-color);
+  color: var(--background-color);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.product-item img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.product-item h3 {
+  font-family: var(--font-primary);
   margin-bottom: 10px;
+}
+
+.product-item p {
+  margin-bottom: 20px;
+}
+
+.product-item button {
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--background-color);
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.product-item button:hover {
+  background-color: var(--highlight-color);
+}
+
+.about, .contact {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact form .form-group label {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.contact form .form-group input, .contact form .form-group textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact form button {
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--background-color);
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.contact form button:hover {
+  background-color: var(--highlight-color);
+}
+
+footer {
   text-align: center;
+  padding: 20px;
+  background-color: var(--background-color);
+}
+
+footer hr {
+  border: 1px dotted var(--text-color);
+  margin: 20px 0;
+}
+
+footer span, footer h4 {
+  display: block;
+  margin: 10px 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-list {
+    flex-direction: column;
+    align-items: center;
+  }
 }
